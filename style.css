@@ -1,0 +1,54 @@
+body{
+	text-align: center;
+}
+
+*{
+	box-sizing: border-box;			
+}
+
+#bookDiv{
+	flex:0 1 250px;
+	background-color: black;
+	color:white;
+	border-radius: 3px;
+	margin: 20px 20px;
+	box-shadow: 0 0 30px -10px black
+}
+#bookinfo{
+display:contents
+}
+
+#info-section{
+	max-width: 1200px;
+	margin: 100px auto;
+	padding: 0 20px;
+	display: flex;
+	flex-wrap: wrap;
+	/*justify-content: center;*/
+}
+
+label {
+  display: block;
+  padding: 7.5px;
+}
+
+form {
+  margin-bottom: 20px;
+  padding: 20px;
+  margin-top:30px;
+  line-height: 22px;
+  background: whitesmoke;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  margin-top: 10px;
+  width:200px;
+  height:30px;
+  border-radius:5px;
+}
+
+#bookinfo p{
+	color:chocolate;
+}
