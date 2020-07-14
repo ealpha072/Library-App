@@ -116,6 +116,14 @@ function render(){
         const delButtton=document.createElement('button');
         	delButtton.setAttribute('id','delete')
         	delButtton.textContent='Delete Book';
+		function deleteBook(){
+        		bookinfoDiv.removeChild(bookDiv);
+        		for(i=0;i<myLibrary.length;i++){
+        			myLibrary.splice(i,1)
+        		}
+        	}
+        	delButtton.addEventListener('click',deleteBook)
+        	
         	
   
   		bookDiv.append(h1,para1,h2,para2,h3,para3,h4,para4,button,delButtton);
