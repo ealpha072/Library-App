@@ -14,7 +14,7 @@ function Book(title,author,pages,status){
 	this.status=status
 }
 
-//creating a form on click;
+//creating a form;
 	const formDiv=document.getElementById('form')
 	const form=document.createElement('form');
 		form.setAttribute('id','book-form');
@@ -38,7 +38,7 @@ function Book(title,author,pages,status){
 	const pageLabel=document.createElement('label');
 		pageLabel.textContent='Num of pages'
 	const pageInput=document.createElement('input');
-		pageInput.setAttribute('type','text');
+		pageInput.setAttribute('type','number');
 		pageInput.setAttribute('placeholder','Number of pages');
 		pageInput.setAttribute('reduired',''); 
 		pageInput.setAttribute('class','pages')
@@ -57,8 +57,6 @@ function createForm(){
 		pageInput,readLabel,readInput);
 	formDiv.appendChild(form);
 }
-
-
 
 function addBook(){
 	
@@ -123,10 +121,7 @@ function render(){
         		}
         	}
         	delButtton.addEventListener('click',deleteBook)
-        	
-        	
-  
-  		bookDiv.append(h1,para1,h2,para2,h3,para3,h4,para4,button,delButtton);
+      		bookDiv.append(h1,para1,h2,para2,h3,para3,h4,para4,button,delButtton);
 		bookinfoDiv.appendChild(bookDiv)
 	})
 }
