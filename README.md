@@ -8,5 +8,6 @@ No frame works, just plain js,css and html.
   * spread operator to duplicate Arrays;
   * tenary operators;
 ## To do: 
-Incude options to store the data to local storage;
+   * Incude options to store the data to local storage;
+   * Add Bootstrap classes
   
