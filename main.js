@@ -82,8 +82,12 @@ function render(){
         </div>
         <div>
             <h4>Read Status</h4>
-            <p>${book.status}</p>
-        </div`,
+            <p class='this-status'>${book.status}</p>
+        </div>
+        <div class='toggle-btns'>
+            <button class="btn btn-success btn-block change">Change Read</button>
+            <button class="btn btn-danger btn-block del">Delete Book</button>
+	    </div>`,
         div = document.createElement('div');
         
         div.setAttribute('class','col book')
@@ -104,6 +108,3 @@ submit.addEventListener('click',(e)=>{
     bookDiv.innerHTML = '';
     render();
 })
-
-
-///to do , add rows to html to carry the books...
