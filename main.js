@@ -2,6 +2,8 @@
 let formDiv = document.querySelector('.form-div'),
     addbtn = document.querySelector('.add-btn'),
     bookDiv = document.querySelector('.books-div');
+    submit = document.querySelector('.new-book')
+
 
 let myLibrary=[];
 
@@ -9,7 +11,7 @@ let myLibrary=[];
 myLibrary.push(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 'yes'));
 myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208, 'no'));
 myLibrary.push(new Book("How to Win Friends", "Dale Carnegie", 291, 'yes'));
-render();
+//render();
 
 //constructor
 function Book(title,author,pages,status){
@@ -38,28 +40,37 @@ function generateForm(){
         </div>
         <div class="form-group">
             <label for="Status">Book Status</label>
-            <input type="text" class="form-control" id="book-Status" placeholder="Have you read the book? Yes/No">
+            <input type="text" class="form-control" id="book-status" placeholder="Have you read the book? Yes/No">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        
     </form>`
+    //<button type="submit" class="btn btn-primary new-book" onclick="addBkToLib()" >Submit</button>
     formDiv.innerHTML = contents
 }
 
-function addBook(){
-    
-    const bktitle=document.querySelector('.title').value;
-    const bkauthor=document.querySelector('.author').value;
-    const bkpages=document.querySelector('.pages').value;
-    const bkstatus=document.querySelector('.status').value;
-    
+function addBkToLib(){
 
-    if (bktitle===''||bkauthor===''||bkpages===''||bkstatus=='') {alert('All fields must be filled!')
-        }else{myLibrary.push(new Book(bktitle,bkauthor,bkpages,bkstatus))};
-    render();
+    let bookTitle = document.querySelector('#book-title').value,
+        bookAuthor = document.querySelector('#book-author').value,
+        bookPages = document.querySelector('#book-pages').value,
+        bookStatus = document.querySelector('#book-status').value;
+    
+    if(bookTitle==='' ||bookAuthor===''||bookPages===''||bookStatus===''){
+        alert('Please fill in all fields!!!')
+    }else{
+        myLibrary.push(new Book(bookTitle,bookAuthor,bookPages,bookStatus))
+    }
+    console.log(myLibrary)
 }
 
-function render(){
-    function changeRead(){para4.textContent = para4.textContent=='yes'? 'no':'yes';}
-}
 
-addbtn.addEventListener('click',generateForm)
+addbtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    generateForm()
+    submit.style.display ='block'
+})
+
+submit.addEventListener('click',(e)=>{
+    e.preventDefault()
+    addBkToLib();
+})
