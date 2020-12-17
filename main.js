@@ -67,11 +67,24 @@ function render(){
     myLibrary.forEach(book=>{
 
         let card = `
-            <h4>Author: ${book.author} </h1>
-            <h4>Title: ${book.title} </h4>
-            <h4>Pages: ${book.pages} </h4>
-            <h4>Read: ${book.status}</h4>`,
-            div = document.createElement('div')
+        <div>
+            <h4>Author</h4>
+            <p>${book.author}</p>
+        </div>
+        <div>
+            <h4>Title</h4>
+            <p>${book.title}</p>
+        </div>
+        <div>
+            <h4>Pages</h4>
+            <p>${book.pages}</p>
+        </div>
+        <div>
+            <h4>Read Status</h4>
+            <p>${book.status}</p>
+        </div`,
+        div = document.createElement('div');
+        div.setAttribute('class','book')
     div.innerHTML = card;
     bookDiv.appendChild(div)
     })
@@ -88,3 +101,6 @@ submit.addEventListener('click',(e)=>{
     addBkToLib();
     render();
 })
+
+
+///to do , add rows to html to carry the books...
