@@ -11,6 +11,7 @@ let myLibrary=[];
 myLibrary.push(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 'yes'));
 myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208, 'no'));
 myLibrary.push(new Book("How to Win Friends", "Dale Carnegie", 291, 'yes'));
+myLibrary.push(new Book('How to Loose Money','Alpha Emmanuel','200','yes'))
 render();
 
 //constructor
@@ -84,7 +85,8 @@ function render(){
             <p>${book.status}</p>
         </div`,
         div = document.createElement('div');
-        div.setAttribute('class','book')
+        
+        div.setAttribute('class','col book')
     div.innerHTML = card;
     bookDiv.appendChild(div)
     })
@@ -97,8 +99,9 @@ addbtn.addEventListener('click',(e)=>{
 })
 
 submit.addEventListener('click',(e)=>{
-    e.preventDefault()
+    e.preventDefault();
     addBkToLib();
+    bookDiv.innerHTML = '';
     render();
 })
 
