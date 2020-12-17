@@ -11,7 +11,7 @@ let myLibrary=[];
 myLibrary.push(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 'yes'));
 myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208, 'no'));
 myLibrary.push(new Book("How to Win Friends", "Dale Carnegie", 291, 'yes'));
-//render();
+render();
 
 //constructor
 function Book(title,author,pages,status){
@@ -63,6 +63,19 @@ function addBkToLib(){
     console.log(myLibrary)
 }
 
+function render(){
+    myLibrary.forEach(book=>{
+
+        let card = `
+            <h4>Author: ${book.author} </h1>
+            <h4>Title: ${book.title} </h4>
+            <h4>Pages: ${book.pages} </h4>
+            <h4>Read: ${book.status}</h4>`,
+            div = document.createElement('div')
+    div.innerHTML = card;
+    bookDiv.appendChild(div)
+    })
+}
 
 addbtn.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -73,4 +86,5 @@ addbtn.addEventListener('click',(e)=>{
 submit.addEventListener('click',(e)=>{
     e.preventDefault()
     addBkToLib();
+    render();
 })
