@@ -4,10 +4,10 @@ Books are added via a form.
 No frame works, just plain js,css and html.
 
 ## Changed items from the previous code: 
-  * setAttributes function to lessen code;
-  * spread operator to duplicate Arrays;
-  * tenary operators;
+  * Raw input of html in js to lessen code;
+  * The many createElement functions have been removed;
+  * Bootstrap added for style;
 ## To do: 
    * Incude options to store the data to local storage;
-   * Add Bootstrap classes
+   
   
