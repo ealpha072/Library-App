@@ -1,4 +1,7 @@
-//consider removing the many ifs and replace with a single stmt..
+//dom elements
+let formDiv = document.querySelector('.form-div'),
+    addbtn = document.querySelector('.add-btn'),
+    bookDiv = document.querySelector('.books-div');
 
 let myLibrary=[];
 
@@ -19,10 +22,27 @@ function Book(title,author,pages,status){
 
 
 function generateForm(){
-    //constants;
-    function setAttributes(el,attr){for(var key in attr){ el.setAttribute(key,attr[key]);}}
-    //create elements
-    
+    let contents =
+    `<form action="">
+        <div class="form-group">
+            <label for="title">Book Title</label>
+            <input type="text" class="form-control" id="book-title" placeholder="Enter Book Title">
+        </div>
+        <div class="form-group">
+            <label for="author">Book Author</label>
+            <input type="text" class="form-control" id="book-author" placeholder="Enter Book author">
+        </div>
+        <div class="form-group">
+            <label for="pages">Book Pages</label>
+            <input type="text" class="form-control" id="book-pages" placeholder="Enter Number of Pages">
+        </div>
+        <div class="form-group">
+            <label for="Status">Book Status</label>
+            <input type="text" class="form-control" id="book-Status" placeholder="Have you read the book? Yes/No">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>`
+    formDiv.innerHTML = contents
 }
 
 function addBook(){
@@ -42,3 +62,4 @@ function render(){
     function changeRead(){para4.textContent = para4.textContent=='yes'? 'no':'yes';}
 }
 
+addbtn.addEventListener('click',generateForm)
