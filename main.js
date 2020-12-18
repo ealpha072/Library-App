@@ -113,12 +113,20 @@ let btn = []
 
 let changeRead = document.querySelectorAll('.change')
 btn.push(changeRead)
-console.log(changeRead)
+console.log(btn)
 
-changeRead.forEach(btn=>{
-    btn.addEventListener('click',(e)=>{
-        let target = e.target;
-            status = document.querySelector('.this-status').innerHTML;
-            console.log(status)
-    })
-})
+
+
+function removeItem(e) {
+    if (e.target.classList.contains("change")) {
+      let item = e.target.parentElement;
+      //remove from dom
+  
+      item.remove();
+    }
+  }
+
+  btn.forEach(button=>{
+      button.addEventListener('click',removeItem)
+  })
+//changeRead.addEventListener('click',removeItem)
