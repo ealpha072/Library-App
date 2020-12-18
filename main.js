@@ -108,3 +108,17 @@ submit.addEventListener('click',(e)=>{
     bookDiv.innerHTML = '';
     render();
 })
+
+let btn = []
+
+let changeRead = document.querySelectorAll('.change')
+btn.push(changeRead)
+console.log(changeRead)
+
+changeRead.forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+        let target = e.target;
+            status = document.querySelector('.this-status').innerHTML;
+            console.log(status)
+    })
+})
