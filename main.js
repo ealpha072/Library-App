@@ -121,17 +121,19 @@ function removeItem(e) {
 
 let buttons = document.querySelectorAll('.change') 
 
+function toggleRead(e){
+    let target = e.target;
+    if(target.parentNode.parentNode.childNodes[7].childNodes[3].textContent = 'yes'){
+        target.parentNode.parentNode.childNodes[7].childNodes[3].textContent ='no'
+    }else if(target.parentNode.parentNode.childNodes[7].childNodes[3].textContent ='no'){
+        target.parentNode.parentNode.childNodes[7].childNodes[3].textContent ='yes'
+    }
+}
+
+
 buttons.forEach(button=>{
     button.addEventListener('click',(e)=>{
-    
-        let mypElement = e.target.parentNode.parentNode.childNodes[7].childNodes[3];
-            
-        console.log(mypElement)
-        if(mypElement.textContent = 'yes'){
-            mypElement.textContent ='no'
-        }else{
-            mypElement = e.target.parentNode.parentNode.childNodes[7].childNodes[3]
-            mypElement.textContent = 'yes'
-        }
+        e.preventDefault();
+        toggleRead(e)    
     })
 })
