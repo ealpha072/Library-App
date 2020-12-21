@@ -109,24 +109,37 @@ submit.addEventListener('click',(e)=>{
     render();
 })
 
-let btn = []
-
-let changeRead = document.querySelectorAll('.change')
-btn.push(changeRead)
-console.log(btn)
-
-
 
 function removeItem(e) {
     if (e.target.classList.contains("change")) {
       let item = e.target.parentElement;
       //remove from dom
-  
+  console.log(item)
       item.remove();
     }
-  }
+}
 
-  btn.forEach(button=>{
-      button.addEventListener('click',removeItem)
-  })
-//changeRead.addEventListener('click',removeItem)
+let buttons = document.querySelectorAll('.change') 
+console.log(buttons)
+    //buttonsArr = [];
+
+    function change(element){
+        if(element.innerHTML == 'yes'){
+            element.innerHTML =='no'
+        }else{
+            element.innerHTML=='yes'
+        }
+    }
+//buttonsArr.push(buttons)
+buttons.forEach(button=>{
+    button.addEventListener('click',(e)=>{
+    let changeText = e.target.parentNode.parentNode.childNodes[7].childNodes[3].textContent;
+    console.log(changeText)
+    if(changeText = 'yes'){
+        changeText ='no'
+    }else{
+        changeText='yes'
+    }
+    
+    })
+})
