@@ -137,3 +137,14 @@ buttons.forEach(button=>{
         toggleRead(e)    
     })
 })
+
+let delbuttons = document.querySelectorAll('.del')
+
+delbuttons.forEach(button=>{
+    button.addEventListener('click',(e)=>{
+        let target = e.target
+        let bookToDelete = target.parentNode.parentNode
+            bookDiv.removeChild(bookToDelete)
+    })
+})
+
