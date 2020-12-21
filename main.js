@@ -144,7 +144,12 @@ delbuttons.forEach(button=>{
     button.addEventListener('click',(e)=>{
         let target = e.target
         let bookToDelete = target.parentNode.parentNode
-            bookDiv.removeChild(bookToDelete)
+        let bookToDeleteTitle = target.parentNode.parentNode.childNodes[3].childNodes[3].textContent;
+        console.log(bookToDeleteTitle)
+            //bookDiv.removeChild(bookToDelete)
+        
+        
+
     })
 })
 
