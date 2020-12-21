@@ -120,26 +120,18 @@ function removeItem(e) {
 }
 
 let buttons = document.querySelectorAll('.change') 
-console.log(buttons)
-    //buttonsArr = [];
 
-    function change(element){
-        if(element.innerHTML == 'yes'){
-            element.innerHTML =='no'
-        }else{
-            element.innerHTML=='yes'
-        }
-    }
-//buttonsArr.push(buttons)
 buttons.forEach(button=>{
     button.addEventListener('click',(e)=>{
-    let changeText = e.target.parentNode.parentNode.childNodes[7].childNodes[3].textContent;
-    console.log(changeText)
-    if(changeText = 'yes'){
-        changeText ='no'
-    }else{
-        changeText='yes'
-    }
     
+        let mypElement = e.target.parentNode.parentNode.childNodes[7].childNodes[3];
+            
+        console.log(mypElement)
+        if(mypElement.textContent = 'yes'){
+            mypElement.textContent ='no'
+        }else{
+            mypElement = e.target.parentNode.parentNode.childNodes[7].childNodes[3]
+            mypElement.textContent = 'yes'
+        }
     })
 })
