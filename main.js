@@ -1,4 +1,6 @@
 //dom elements
+let btn1 = $(".add-btn"),
+    formDiv = $(".form-div");
 
 
 let myLibrary = [];
@@ -18,28 +20,6 @@ function Book(title, author, pages, status) {
     this.status = status
 }
 
-//generate form
-function generateForm() {
-    let contents =
-        `<form action="">
-            <div class="form-group">
-                <label for="title">Book Title</label>
-                <input type="text" class="form-control" id="book-title" placeholder="Enter Book Title">
-            </div>
-            <div class="form-group">
-                <label for="author">Book Author</label>
-                <input type="text" class="form-control" id="book-author" placeholder="Enter Book author">
-            </div>
-            <div class="form-group">
-                <label for="pages">Book Pages</label>
-                <input type="text" class="form-control" id="book-pages" placeholder="Enter Number of Pages">
-            </div>
-            <div class="form-group">
-                <label for="Status">Book Status</label>
-                <input type="text" class="form-control" id="book-status" placeholder="Have you read the book? Yes/No">
-            </div>        
-        </form>`
-}
 
 //add book to library
 function addBkToLib() {
@@ -63,3 +43,9 @@ function render() {
 
     })
 }
+
+//event listerners
+$(".add-btn").on("click", (e) => {
+    e.preventDefault();
+    formDiv.style.display = "block";
+})
