@@ -1,4 +1,7 @@
 //dom elements
+let addBookBtn = $(".add-btn"),
+    addBookForm = $(".form-div")
+
 let myLibrary = [];
 
 //add few books
@@ -15,3 +18,10 @@ function Book(title, author, pages, status) {
     this.pages = pages
     this.status = status
 }
+
+//event listeners
+addBookBtn.on('click', function(e) {
+    e.preventDefault();
+    addBookForm.css("display", "block");
+    console.log('I have been clicked');
+})
