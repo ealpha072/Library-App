@@ -1,6 +1,7 @@
 //dom elements
-let addBookBtn = $(".add-btn"),
-    addBookForm = $(".form-div")
+let displayForm = $(".add-btn"),
+    addBookForm = $(".form-div"),
+    addNewBook = $(".new-book");
 
 let myLibrary = [];
 
@@ -20,8 +21,25 @@ function Book(title, author, pages, status) {
 }
 
 //event listeners
-addBookBtn.on('click', function(e) {
+displayForm.on('click', function(e) {
     e.preventDefault();
     addBookForm.css("display", "block");
     console.log('I have been clicked');
+})
+
+addNewBook.on('click', (e) => {
+    e.preventDefault();
+    let bktitle = $("#book-tile").val(),
+        bkauthor = $("#book-author").val(),
+        bkpages = $("#book-author").val(),
+        bkstatus = $("#book-author").val();
+    if (bktitle === '' || bkauthor === '' || bkpages === '' || bkstatus === '') {
+        alert("Please fill in all the form inputs");
+    } else {
+        //bkstatus = bkstatus.toUpperCase();
+        myLibrary.push(new Book(bktitle, bkauthor, bkpages, bkstatus));
+        console.log("Success")
+    }
+
+
 })
