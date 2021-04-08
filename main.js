@@ -1,8 +1,4 @@
 //dom elements
-let btn1 = $(".add-btn"),
-    formDiv = $(".form-div");
-
-
 let myLibrary = [];
 
 //add few books
