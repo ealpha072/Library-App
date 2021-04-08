@@ -19,33 +19,3 @@ function Book(title, author, pages, status) {
     this.pages = pages
     this.status = status
 }
-
-
-//add book to library
-function addBkToLib() {
-
-    let bookTitle = $('#book-title').value,
-        bookAuthor = $('#book-author').value,
-        bookPages = $('#book-pages').value,
-        bookStatus = $('#book-status').value;
-
-    if (bookTitle === '' || bookAuthor === '' || bookPages === '' || bookStatus === '') {
-        alert('Please fill in all fields!!!')
-    } else {
-        myLibrary.push(new Book(bookTitle, bookAuthor, bookPages, bookStatus))
-    }
-    console.log(myLibrary)
-}
-
-//show each book in the library
-function render() {
-    myLibrary.forEach(book => {
-
-    })
-}
-
-//event listerners
-$(".add-btn").on("click", (e) => {
-    e.preventDefault();
-    formDiv.style.display = "block";
-})
