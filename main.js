@@ -1,7 +1,8 @@
 //dom elements
 let displayForm = $(".add-btn"),
     addBookForm = $(".form-div"),
-    addNewBook = $(".new-book");
+    addNewBook = $(".new-book"),
+    booksDiv = $(".books-div");
 
 let myLibrary = [];
 
@@ -10,7 +11,7 @@ myLibrary.push(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 'yes'));
 myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208, 'no'));
 myLibrary.push(new Book("How to Win Friends", "Dale Carnegie", 291, 'yes'));
 myLibrary.push(new Book('How to Loose Money', 'Alpha Emmanuel', '200', 'yes'))
-    //render();
+render();
 
 //constructor
 function Book(title, author, pages, status) {
@@ -39,7 +40,23 @@ addNewBook.on('click', (e) => {
         //bkstatus = bkstatus.toUpperCase();
         myLibrary.push(new Book(bktitle, bkauthor, bkpages, bkstatus));
         console.log("Success")
+        render();
     }
-
-
 })
+
+///RENDER FUNCTION
+function render() {
+    myLibrary.forEach(book => {
+        let card =
+            `<div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Title: <p>${book.title}</p></h5>
+                    <h5 class="card-title">Author: <p>${book.author}</p></h5>
+                    <h5 class="card-title">Pages: <p>${book.pages}</p></h5>
+                    <h5 class="card-title">Status: <p>${book.status}</p></h5>
+                </div>
+            </div>`
+        booksDiv.append(card)
+    })
+
+}
