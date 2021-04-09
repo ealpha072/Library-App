@@ -18,8 +18,7 @@ myLibrary.push(new Book('How to Loose Money', 'Alpha Emmanuel', '200', 'yes'))
 myLibrary.push(new Book('The Dark Knight', 'David Omollo', '200', 'no'))
 libLog();
 render();
-let myBtns = $(".btn-danger")
-console.log(myBtns);
+
 
 //constructor
 function Book(title, author, pages, status) {
@@ -64,13 +63,15 @@ function render() {
                         <p>Read book: ${book.status}</p>
                     </div>
                     <div class="buttons" style="height:50px">
-                        <button class="btn btn-danger" onClick=deleteBook()>Delete</button>
+                        <button class="btn btn-danger">Delete</button>
                         <button class="btn btn-success">Edit</button>
                     </div>
                 </div>
             </div>`
         booksDiv.append(card)
     })
+    let btns = $(".btn-danger");
+
 
 }
 
@@ -92,14 +93,4 @@ function libLog() {
             notRead.text(numOfBooksNotRead);
         }
     }
-}
-
-function getBtn() {
-    let btns = document.querySelectorAll(".btn-danger");
-    console.log(btns);
-    return btns;
-}
-
-function deleteBook() {
-
 }
