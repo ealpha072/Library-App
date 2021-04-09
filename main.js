@@ -30,7 +30,7 @@ displayForm.on('click', function(e) {
 
 addNewBook.on('click', (e) => {
     e.preventDefault();
-    let bktitle = $("#book-tile").val(),
+    let bktitle = $("#book-title").val(),
         bkauthor = $("#book-author").val(),
         bkpages = $("#book-author").val(),
         bkstatus = $("#book-author").val();
@@ -39,7 +39,8 @@ addNewBook.on('click', (e) => {
     } else {
         //bkstatus = bkstatus.toUpperCase();
         myLibrary.push(new Book(bktitle, bkauthor, bkpages, bkstatus));
-        console.log("Success")
+        //console.log("Success")
+        booksDiv.html('')
         render();
     }
 })
@@ -48,7 +49,7 @@ addNewBook.on('click', (e) => {
 function render() {
     myLibrary.forEach(book => {
         let card =
-            `<div class="card" style="width: 18rem;">
+            `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card">
                 <div class="card-body">
                     <h5 class="card-title">Title: <p>${book.title}</p></h5>
                     <h5 class="card-title">Author: <p>${book.author}</p></h5>
