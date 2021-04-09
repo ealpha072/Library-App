@@ -24,8 +24,9 @@ function Book(title, author, pages, status) {
 //event listeners
 displayForm.on('click', function(e) {
     e.preventDefault();
-    addBookForm.css("display", "block");
-    console.log('I have been clicked');
+    addBookForm.toggleClass('hide')
+        //addBookForm.css("display", "block");
+        //console.log('I have been clicked');
 })
 
 addNewBook.on('click', (e) => {
