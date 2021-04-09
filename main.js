@@ -55,7 +55,7 @@ function render() {
                 <div class="card-body">
                     <h6>${book.title}</h6>
                     <p>By ${book.author}</p>
-                    <p>Numnber of pages: ${book.pages}</p>
+                    <p>Pages: ${book.pages}</p>
                     <p>Read book: ${book.status}</p>
                 </div>
             </div>`
