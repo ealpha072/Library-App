@@ -11,6 +11,7 @@ myLibrary.push(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 'yes'));
 myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208, 'no'));
 myLibrary.push(new Book("How to Win Friends", "Dale Carnegie", 291, 'yes'));
 myLibrary.push(new Book('How to Loose Money', 'Alpha Emmanuel', '200', 'yes'))
+myLibrary.push(new Book('The Dark Knight', 'David Omollo', '200', 'no'))
 render();
 
 //constructor
@@ -50,12 +51,12 @@ addNewBook.on('click', (e) => {
 function render() {
     myLibrary.forEach(book => {
         let card =
-            `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card">
+            `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card" id="book-info">
                 <div class="card-body">
-                    <h5 class="card-title">Title: <p>${book.title}</p></h5>
-                    <h5 class="card-title">Author: <p>${book.author}</p></h5>
-                    <h5 class="card-title">Pages: <p>${book.pages}</p></h5>
-                    <h5 class="card-title">Status: <p>${book.status}</p></h5>
+                    <h6>${book.title}</h6>
+                    <p>By ${book.author}</p>
+                    <p>Numnber of pages: ${book.pages}</p>
+                    <p>Read book: ${book.status}</p>
                 </div>
             </div>`
         booksDiv.append(card)

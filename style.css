@@ -9,3 +9,8 @@
 .header .about {
     font-size: x-large;
 }
+
+.container .books .row #book-info {
+    background-color: beige;
+    margin-top: 10px;
+}
