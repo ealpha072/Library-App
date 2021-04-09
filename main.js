@@ -2,7 +2,10 @@
 let displayForm = $(".add-btn"),
     addBookForm = $(".form-div"),
     addNewBook = $(".new-book"),
-    booksDiv = $(".books-div");
+    booksDiv = $(".books-div"),
+    totalBooks = $("#book-count"),
+    readBooks = $("#read-books"),
+    notRead = $("#not-read");
 
 let myLibrary = [];
 
@@ -12,6 +15,7 @@ myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208
 myLibrary.push(new Book("How to Win Friends", "Dale Carnegie", 291, 'yes'));
 myLibrary.push(new Book('How to Loose Money', 'Alpha Emmanuel', '200', 'yes'))
 myLibrary.push(new Book('The Dark Knight', 'David Omollo', '200', 'no'))
+libLog();
 render();
 
 //constructor
@@ -58,4 +62,24 @@ function render() {
         booksDiv.append(card)
     })
 
+}
+
+function libLog() {
+    let numOfBooks = myLibrary.length,
+        booksRead = [],
+        booksNotRead = [],
+        numOfBooksRead = '',
+        numOfBooksNotRead = '';
+    totalBooks.text(numOfBooks)
+    for (var i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].status === 'yes') {
+            booksRead.push(myLibrary[i])
+            numOfBooksRead = booksRead.length
+            readBooks.text(numOfBooksRead)
+        } else {
+            booksNotRead.push(myLibrary[i])
+            numOfBooksNotRead = booksNotRead.length
+            notRead.text(numOfBooksNotRead);
+        }
+    }
 }
