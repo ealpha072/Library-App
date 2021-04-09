@@ -26,8 +26,6 @@ function Book(title, author, pages, status) {
 displayForm.on('click', function(e) {
     e.preventDefault();
     addBookForm.toggleClass('hide')
-        //addBookForm.css("display", "block");
-        //console.log('I have been clicked');
 })
 
 addNewBook.on('click', (e) => {
@@ -39,9 +37,7 @@ addNewBook.on('click', (e) => {
     if (bktitle === '' || bkauthor === '' || bkpages === '' || bkstatus === '') {
         alert("Please fill in all the form inputs");
     } else {
-        //bkstatus = bkstatus.toUpperCase();
         myLibrary.push(new Book(bktitle, bkauthor, bkpages, bkstatus));
-        //console.log("Success")
         booksDiv.html('')
         render();
     }
