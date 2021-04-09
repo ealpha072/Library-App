@@ -18,7 +18,8 @@ myLibrary.push(new Book('How to Loose Money', 'Alpha Emmanuel', '200', 'yes'))
 myLibrary.push(new Book('The Dark Knight', 'David Omollo', '200', 'no'))
 libLog();
 render();
-getBtn();
+let myBtns = $(".btn-danger")
+console.log(myBtns);
 
 //constructor
 function Book(title, author, pages, status) {
@@ -97,4 +98,8 @@ function getBtn() {
     let btns = document.querySelectorAll(".btn-danger");
     console.log(btns);
     return btns;
+}
+
+function deleteBook() {
+
 }
