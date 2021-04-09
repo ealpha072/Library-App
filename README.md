@@ -4,5 +4,6 @@ Books are added via a form.
 
 ## To do: 
    * Incude options to store the data to local storage;
+   * Add a library log to display library status
    
   
