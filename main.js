@@ -43,6 +43,7 @@ addNewBook.on('click', (e) => {
     } else {
         myLibrary.push(new Book(bktitle, bkauthor, bkpages, bkstatus));
         booksDiv.html('')
+        libLog();
         render();
     }
 })
@@ -53,10 +54,16 @@ function render() {
         let card =
             `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card" id="book-info">
                 <div class="card-body">
-                    <h6>${book.title}</h6>
-                    <p>By ${book.author}</p>
-                    <p>Pages: ${book.pages}</p>
-                    <p>Read book: ${book.status}</p>
+                    <div>
+                        <h6>${book.title}</h6>
+                        <p>By ${book.author}</p>
+                        <p>Pages: ${book.pages}</p>
+                        <p>Read book: ${book.status}</p>
+                    </div>
+                    <div class="buttons" style="height:50px">
+                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-success">Edit</button>
+                    </div>
                 </div>
             </div>`
         booksDiv.append(card)
