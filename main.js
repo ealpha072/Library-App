@@ -39,8 +39,8 @@ addNewBook.on('click', (e) => {
     e.preventDefault();
     let bktitle = $("#book-title").val(),
         bkauthor = $("#book-author").val(),
-        bkpages = $("#book-author").val(),
-        bkstatus = $("#book-author").val();
+        bkpages = $("#book-pages").val(),
+        bkstatus = $("#book-status").val();
     if (bktitle === '' || bkauthor === '' || bkpages === '' || bkstatus === '') {
         alert("Please fill in all the form inputs");
     } else {
@@ -80,14 +80,10 @@ function render() {
             e.preventDefault();
             let target = e.target.parentNode.parentNode
             let bookToDelete = target.children[0].children[0].innerHTML
-                //console.log(bookToDelete);
             for (var i = 0; i < myLibrary.length; i++) {
                 if (myLibrary[i].title === bookToDelete) {
-                    //console.log(myLibrary[i])
                     let indexToDelete = myLibrary.indexOf(myLibrary[i]);
-                    console.log(indexToDelete)
                     myLibrary.splice(indexToDelete, 1);
-                    console.log(myLibrary.length)
                     booksDiv.html('');
                     render()
                 }
@@ -98,7 +94,25 @@ function render() {
 
     editBtn.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault()
+            e.preventDefault();
+            let target = e.target.parentNode.parentNode,
+                bookToEditTitle = target.children[0].children[0].innerHTML;
+            console.log(bookToEditTitle);
+            for (var i = 0; i < myLibrary.length; i++) {
+                if (myLibrary[i].title === bookToEditTitle) {
+                    let indexToEdit = myLibrary.indexOf(myLibrary[i]),
+                        bookToEdit = myLibrary[indexToEdit];
+                    //console.log(bookToEdit)
+                    $("#book-title").val(bookToEdit.title)
+                    $("#book-author").val(bookToEdit.author)
+                    $("#book-pages").val(bookToEdit.pages)
+                    $("#book-status").val(bookToEdit.status)
+
+                }
+            }
+
+
+
         })
     })
 }
