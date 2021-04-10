@@ -4,7 +4,6 @@ Books are added via a form.
 
 ## To do: 
    * Incude options to store the data to local storage;
-   * Add a dark theme
    * Ability to change status
    
   
