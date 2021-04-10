@@ -65,13 +65,16 @@ function render() {
                     </div>
                     <div class="buttons" style="height:50px">
                         <button class="btn btn-danger" id="del">Delete</button>
-                        <button class="btn btn-success">Edit</button>
+                        <button class="btn btn-success" id="edit">Edit</button>
                     </div>
                 </div>
             </div>`
         booksDiv.append(card)
     })
+
     let delBtn = document.querySelectorAll("#del");
+    let editBtn = document.querySelectorAll("#edit");
+
     delBtn.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -90,6 +93,12 @@ function render() {
                 }
             }
 
+        })
+    })
+
+    editBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault()
         })
     })
 }
