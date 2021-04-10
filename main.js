@@ -95,9 +95,11 @@ function render() {
     editBtn.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            addBookForm.toggleClass('hide')
             let target = e.target.parentNode.parentNode,
                 bookToEditTitle = target.children[0].children[0].innerHTML;
             console.log(bookToEditTitle);
+            //logic for checking if form is currently being displayed
             for (var i = 0; i < myLibrary.length; i++) {
                 if (myLibrary[i].title === bookToEditTitle) {
                     let indexToEdit = myLibrary.indexOf(myLibrary[i]),
