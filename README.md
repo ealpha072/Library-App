@@ -6,5 +6,6 @@ Books are added via a form.
    * Incude options to store the data to local storage;
    * Ability to change status
    * Look for more ways of implementing dark theme
+   * Add images and improve the UI
    
   
