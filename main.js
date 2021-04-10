@@ -107,7 +107,9 @@ function render() {
                     $("#book-author").val(bookToEdit.author)
                     $("#book-pages").val(bookToEdit.pages)
                     $("#book-status").val(bookToEdit.status)
-
+                    myLibrary.splice(indexToEdit, 1);
+                    booksDiv.html('');
+                    render()
                 }
             }
 
