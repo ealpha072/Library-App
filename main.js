@@ -121,8 +121,6 @@ function render() {
     })
 }
 
-
-
 function libLog() {
     let numOfBooks = myLibrary.length,
         booksRead = [],
