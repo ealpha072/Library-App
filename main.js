@@ -7,8 +7,12 @@ let displayForm = $(".add-btn"),
     readBooks = $("#read-books"),
     notRead = $("#not-read");
 
+const htmlEl = document.getElementsByTagName('html')[0];
 
-//console.log(delBtn);
+const toggleTheme = (theme) => {
+        htmlEl.dataset.theme = theme;
+    }
+    //console.log(delBtn);
 let myLibrary = [];
 
 //add few books
@@ -55,7 +59,7 @@ addNewBook.on('click', (e) => {
 function render() {
     myLibrary.forEach(book => {
         let card =
-            `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card" id="book-info">
+            `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card" id="book-info" style="margin-top:5px;">
                 <div class="card-body">
                     <div>
                         <h6>${book.title}</h6>
