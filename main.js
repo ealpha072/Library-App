@@ -63,14 +63,35 @@ function render() {
                         <p>Read book: ${book.status}</p>
                     </div>
                     <div class="buttons" style="height:50px">
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" id="del">Delete</button>
                         <button class="btn btn-success">Edit</button>
                     </div>
                 </div>
             </div>`
         booksDiv.append(card)
     })
-    let btns = $(".btn-danger");
+
+    let delBtn = document.querySelectorAll("#del");
+    //console.log(typeof(delBtn));
+
+    delBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target.parentNode.parentNode
+            let bookToDelete = target.children[0].children[0].innerHTML
+                //console.log(bookToDelete);
+            for (var i = 0; i < myLibrary.length; i++) {
+                if (myLibrary[i].title === bookToDelete) {
+                    //console.log(myLibrary[i])
+                    let indexToDelete = myLibrary.indexOf(myLibrary[i]);
+                    console.log(indexToDelete)
+                    myLibrary.splice(indexToDelete, 1);
+                    console.log(myLibrary.length)
+                    render();
+                }
+            }
+        })
+    })
 
 
 }
