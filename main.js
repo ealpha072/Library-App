@@ -7,6 +7,7 @@ let displayForm = $(".add-btn"),
     readBooks = $("#read-books"),
     notRead = $("#not-read");
 
+
 //console.log(delBtn);
 let myLibrary = [];
 
@@ -70,10 +71,7 @@ function render() {
             </div>`
         booksDiv.append(card)
     })
-
     let delBtn = document.querySelectorAll("#del");
-    //console.log(typeof(delBtn));
-
     delBtn.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -87,14 +85,16 @@ function render() {
                     console.log(indexToDelete)
                     myLibrary.splice(indexToDelete, 1);
                     console.log(myLibrary.length)
-                    render();
+                    booksDiv.html('');
+                    render()
                 }
             }
+
         })
     })
-
-
 }
+
+
 
 function libLog() {
     let numOfBooks = myLibrary.length,
