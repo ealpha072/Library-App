@@ -1,40 +1,44 @@
-* {
-    margin: 0px;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    transition: color 300ms, background-color 300ms;
-}
-
-html[data-theme='dark'] {
-    background: #000;
-    filter: invert(1) hue-rotate(180deg)
-}
-
-html[data-theme='dark'] img {
-    filter: invert(1) hue-rotate(180deg)
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
-.header .about {
-    font-size: x-large;
-}
-
-.container .books .row #book-info {
-    background-color: beige;
-    margin-top: 10px;
-}
-
-.darkmode {
-    background-color: black;
-    color: white
-}
+    * {
+        margin: 0px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        transition: color 300ms, background-color 300ms;
+    }
+    
+    html[data-theme='dark'] {
+        background: #000;
+        filter: invert(1) hue-rotate(180deg)
+    }
+    
+    html[data-theme='dark'] img {
+        filter: invert(1) hue-rotate(180deg)
+    }
+    
+    .main {
+        min-height: 100vh;
+        /*background: linear-gradient(to right top, #78dfd9, #086e7e);*/
+        background-color: blanchedalmond;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    .header .about {
+        font-size: x-large;
+    }
+    
+    .main .container-fluid .books .row .card {
+        background-color: bisque;
+    }
+    
+    .main .container-fluid .books .row .card .buttons {
+        margin-bottom: 10px;
+    }

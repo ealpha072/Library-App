@@ -59,7 +59,7 @@ addNewBook.on('click', (e) => {
 function render() {
     myLibrary.forEach(book => {
         let card =
-            `<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card" id="book-info" style="margin-top:5px;">
+            `<div class="col col-lg-3 col-md-4 col-sm-6 col-xs-12 card" id="book-info" style="margin-top:5px;">
                 <div class="card-body">
                     <div>
                         <h6>${book.title}</h6>
@@ -67,7 +67,7 @@ function render() {
                         <p>Pages: ${book.pages}</p>
                         <p>Read book: ${book.status}</p>
                     </div>
-                    <div class="buttons" style="height:50px">
+                    <div class="buttons" style="">
                         <button class="btn btn-danger" id="del">Delete</button>
                         <button class="btn btn-success" id="edit">Edit</button>
                     </div>
@@ -118,9 +118,6 @@ function render() {
                     render()
                 }
             }
-
-
-
         })
     })
 }
@@ -144,3 +141,5 @@ function libLog() {
         }
     }
 }
+
+//col-lg-3 col-md-4 col-sm-6 col-xs-12 card
