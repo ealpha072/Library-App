@@ -127,19 +127,15 @@ function render() {
 function libLog() {
     let numOfBooks = myLibrary.length,
         booksRead = [],
-        booksNotRead = [],
-        numOfBooksRead = '',
-        numOfBooksNotRead = '';
+        booksNotRead = [];
     totalBooks.text(numOfBooks)
     for (var i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].status === 'yes') {
             booksRead.push(myLibrary[i])
-            numOfBooksRead = booksRead.length
-            readBooks.text(numOfBooksRead)
+            readBooks.text(booksRead.length)
         } else {
             booksNotRead.push(myLibrary[i])
-            numOfBooksNotRead = booksNotRead.length
-            notRead.text(numOfBooksNotRead);
+            notRead.text(booksNotRead.length);
         }
     }
 }
