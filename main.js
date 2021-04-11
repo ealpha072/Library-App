@@ -15,6 +15,11 @@ const toggleTheme = (theme) => {
     //console.log(delBtn);
 let myLibrary = [];
 
+/*let myLibrary = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+localStorage.setItem('items', JSON.stringify(myLibrary));
+const data = JSON.parse(localStorage.getItem('items'));
+render();*/
+
 //add few books
 myLibrary.push(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 'yes'));
 myLibrary.push(new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 208, 'no'));
