@@ -90,6 +90,7 @@ function render() {
                     myLibrary.splice(indexToDelete, 1);
                     booksDiv.html('');
                     render()
+                    libLog();
                 }
             }
 
@@ -115,7 +116,8 @@ function render() {
                     $("#book-status").val(bookToEdit.status)
                     myLibrary.splice(indexToEdit, 1);
                     booksDiv.html('');
-                    render()
+                    render();
+                    libLog();
                 }
             }
         })
