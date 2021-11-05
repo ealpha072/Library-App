@@ -18,6 +18,7 @@ function Book(title, author, pages, status) {
 renderBooks();
 
 $(document).ready(function(){ 
+    let btns = [$('.edit')];
 
     addBook.on('click', (e)=>{
         e.preventDefault();
@@ -28,9 +29,16 @@ $(document).ready(function(){
         addNewBook()
         alert('New book added successfully!!')
         //form.reset();
-        resultsHolder.html('')
+        resultsHolder.html('');
         renderBooks();
-    } )    
+    }) 
+
+    btns.forEach(btn=>{
+        btn.on('click',(e)=>{
+            console.log(e.target.parentNode.parentNode)
+        })
+    })
+
 });
 
 function renderBooks(){
@@ -42,10 +50,10 @@ function renderBooks(){
             <td>${book.pages}</td>
             <td>${book.status}</td>
             <td>
-                <button class='btn btn-primary btn-sm left-margin'> <span class='glyphicon glyphicon-edit'></span> Edit</button>
+                <button class='btn btn-primary btn-sm edit'> <span class='glyphicon glyphicon-edit'></span> Edit</button>
             </td>
             <td>
-                <button class='btn btn-primary btn-sm left-margin'> <span class='glyphicon glyphicon-remove'></span> Delete</button>
+                <button class='btn btn-primary btn-sm delete'> <span class='glyphicon glyphicon-remove'></span> Delete</button>
             </td>            
         </tr>`
         resultsHolder.append(bookrow);
@@ -60,3 +68,7 @@ function addNewBook(){
 
     myLibrary.push(new Book(title, author, pages, status));
 }
+
+
+
+
