@@ -24,6 +24,7 @@ $(document).ready(function(){
         e.preventDefault();
         formDiv.toggle('show');
     })
+
     addBkBtn.on('click',(e)=>{
         e.preventDefault()
         addNewBook()
@@ -31,11 +32,29 @@ $(document).ready(function(){
         //form.reset();
         resultsHolder.html('');
         renderBooks();
+        formDiv.toggle('hide')
     }) 
 
     btns.forEach(btn=>{
         btn.on('click',(e)=>{
-            console.log(e.target.parentNode.parentNode)
+            let target = e.target.parentNode.parentNode.children[0].innerHTML;
+
+            for (var i = 0; i < myLibrary.length; i++) {
+                if(myLibrary[i].title === target){
+                    let bookIndex = myLibrary.indexOf( myLibrary[i] ),
+                        bookToEdit = myLibrary[bookIndex]
+                    //console.log(bookToEdit)
+                    formDiv.toggle('show');
+                    $('#title').val(bookToEdit.title)
+                    $('#author').val(bookToEdit.author)
+                    $('#pages').val(bookToEdit.pages)
+                    $('#status').val(bookToEdit.status)
+                    myLibrary.splice(bookIndex, 1);
+                    resultsHolder.html('')
+                    renderBooks();
+                }
+                
+            }
         })
     })
 
