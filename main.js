@@ -7,7 +7,7 @@ myLibrary.push(new Book('How to Loose Money', 'Alpha Emmanuel', '200', 'yes'))
 myLibrary.push(new Book('The Dark Knight', 'David Omollo', '200', 'no'))
 myLibrary.push(new Book("Crime and Punishment","Fyodor Doestky",685, "Yes"))
 
-let addBookBtn = $('#new-book-btn'), formDiv = $("#form-div") , resulDiv = $('#user-books')
+let addBook = $('#new-book-btn'), formDiv = $("#form-div") , resultsHolder = $('#user-books'), addBkBtn = $('#add-book'), form = $('#form')
 
 function Book(title, author, pages, status) {
     this.title = title
@@ -15,33 +15,48 @@ function Book(title, author, pages, status) {
     this.pages = pages
     this.status = status
 }
+renderBooks();
 
-$(document).ready(function(){
-    addBookBtn.on('click', (e)=>{
+$(document).ready(function(){ 
+
+    addBook.on('click', (e)=>{
         e.preventDefault();
         formDiv.toggle('show');
     })
-
-    renderBooks(); 
+    addBkBtn.on('click',(e)=>{
+        e.preventDefault()
+        addNewBook()
+        alert('New book added successfully!!')
+        //form.reset();
+        resultsHolder.html('')
+        renderBooks();
+    } )    
 });
 
 function renderBooks(){
     myLibrary.forEach(book => {
-        let bookcard = 
-        `<div class="card">
-            <div class="card-header">
-                <h6>${book.title}</h6>
-            </div>
-            <div class="card-body">
-                <h6>Author: <span>${book.author}</span></h6>
-                <h6>Pages: <span>${book.pages}</span></h6>
-                <h6>Read: <span>${book.status}</span></h6>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-success">Edit</button>
-                <button class="btn btn-sm btn-danger">Delete</button>
-            </div>
-        </div>`;
-        resulDiv.append(bookcard);
+        let bookrow = 
+        `<tr>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.pages}</td>
+            <td>${book.status}</td>
+            <td>
+                <button class='btn btn-primary btn-sm left-margin'> <span class='glyphicon glyphicon-edit'></span> Edit</button>
+            </td>
+            <td>
+                <button class='btn btn-primary btn-sm left-margin'> <span class='glyphicon glyphicon-remove'></span> Delete</button>
+            </td>            
+        </tr>`
+        resultsHolder.append(bookrow);
     });
+}
+
+function addNewBook(){
+    let title = $('#title').val()
+    let author = $('#author').val()
+    let pages = $('#pages').val()
+    let status = $('#status').val()
+
+    myLibrary.push(new Book(title, author, pages, status));
 }
