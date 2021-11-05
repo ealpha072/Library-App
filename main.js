@@ -19,6 +19,7 @@ renderBooks();
 
 $(document).ready(function(){ 
     let btns = [$('.edit')];
+    let delbtns = [$('.delete')]
 
     addBook.on('click', (e)=>{
         e.preventDefault();
@@ -53,10 +54,27 @@ $(document).ready(function(){
                     resultsHolder.html('')
                     renderBooks();
                 }
-                
             }
         })
     })
+
+    delbtns.forEach(btn=>{
+        btn.on('click',(e)=>{
+            let target = e.target.parentNode.parentNode.children[0].innerHTML;
+
+            for (var i = 0; i < myLibrary.length; i++) {
+                if(myLibrary[i].title === target){
+                    let bookIndex = myLibrary.indexOf( myLibrary[i] )
+                    //console.log(bookToEdit)
+                    myLibrary.splice(bookIndex, 1);
+                    resultsHolder.html('')
+                    renderBooks();
+                }
+            }
+        })
+    })
+
+    
 
 });
 
