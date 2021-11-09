@@ -60,12 +60,14 @@ $(document).ready(function(){
 
     delbtns.forEach(btn=>{
         btn.on('click',(e)=>{
-            let target = e.target.parentNode.parentNode.children[0].innerHTML;
+            e.preventDefault()
+            var target = e.target.parentNode.parentNode.children[0].innerHTML;
+            console.log(target)
 
             for (var i = 0; i < myLibrary.length; i++) {
                 if(myLibrary[i].title === target){
                     let bookIndex = myLibrary.indexOf( myLibrary[i] )
-                    //console.log(bookToEdit)
+                    console.log(bookIndex);
                     myLibrary.splice(bookIndex, 1);
                     resultsHolder.html('')
                     renderBooks();
@@ -73,9 +75,6 @@ $(document).ready(function(){
             }
         })
     })
-
-    
-
 });
 
 function renderBooks(){
@@ -87,10 +86,10 @@ function renderBooks(){
             <td>${book.pages}</td>
             <td>${book.status}</td>
             <td>
-                <button class='btn btn-primary btn-sm edit'> <span class='glyphicon glyphicon-edit'></span> Edit</button>
+                <button class='btn btn-primary btn-sm edit'> Edit</button>
             </td>
             <td>
-                <button class='btn btn-primary btn-sm delete'> <span class='glyphicon glyphicon-remove'></span> Delete</button>
+                <button class='btn btn-primary btn-sm delete'> Delete</button>
             </td>            
         </tr>`
         resultsHolder.append(bookrow);
