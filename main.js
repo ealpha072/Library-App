@@ -18,8 +18,7 @@ function Book(title, author, pages, status) {
 renderBooks();
 
 $(document).ready(function(){ 
-    let btns = [$('.edit')];
-    let delbtns = [$('.delete')]
+    let btns = [$('.edit')], delbtns = [$('.delete')]
 
     addBook.on('click', (e)=>{
         e.preventDefault();
@@ -61,17 +60,17 @@ $(document).ready(function(){
     delbtns.forEach(btn=>{
         btn.on('click',(e)=>{
             e.preventDefault()
-            var target = e.target.parentNode.parentNode.children[0].innerHTML;
-            console.log(target)
-
-            for (var i = 0; i < myLibrary.length; i++) {
+            let target = e.target.parentNode.parentNode.children[0].innerHTML;
+            //console.log(target)
+            for(var i = 0; i < myLibrary.length; i++){
                 if(myLibrary[i].title === target){
-                    let bookIndex = myLibrary.indexOf( myLibrary[i] )
-                    console.log(bookIndex);
-                    myLibrary.splice(bookIndex, 1);
+                    myLibrary.splice(myLibrary.indexOf(myLibrary[i]), 1)
+                    console.log(myLibrary)
                     resultsHolder.html('')
                     renderBooks();
                 }
+                //resultsHolder.html('')
+                //renderBooks()
             }
         })
     })
@@ -97,11 +96,7 @@ function renderBooks(){
 }
 
 function addNewBook(){
-    let title = $('#title').val()
-    let author = $('#author').val()
-    let pages = $('#pages').val()
-    let status = $('#status').val()
-
+    let title = $('#title').val(), author = $('#author').val(), pages = $('#pages').val(), status = $('#status').val()
     myLibrary.push(new Book(title, author, pages, status));
 }
 
